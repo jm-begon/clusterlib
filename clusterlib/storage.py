@@ -160,5 +160,5 @@ def sqlite3_dumps(dictionnary, file_name, timeout=7200.0):
                               (key TEXT PRIMARY KEY, value BLOB)""")
 
         # Add a new key
-        connection.executemany("INSERT INTO dict(key, value) VALUES (?, ?)",
+        connection.executemany("INSERT OR REPLACE INTO dict(key, value) VALUES (?, ?)",
                                compressed_dict.items())
